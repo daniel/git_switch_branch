@@ -1,0 +1,12 @@
+#!/usr/bin/env ruby
+
+THIS_FILE = File.symlink?(__FILE__) ? File.readlink(__FILE__) : __FILE__
+require File.expand_path('../lib/git_switch_branch', File.dirname(THIS_FILE))
+
+if ARGV[0] == '--help' || ARGV.size > 1
+  GitSwitchBranch.show_usage
+elsif ARGV[0] == '--version' || ARGV[0] == '-v'
+  GitSwitchBranch.show_version
+else
+  GitSwitchBranch.find_and_checkout_branch(ARGV[0])
+end
