@@ -68,4 +68,4 @@ git_switch_branch has been tested with:
 
 * OS X Lion
 * Ruby 1.8.7, 1.9.3
-* Git 1.7.7, 1.8.0
+* Git 1.7.7, 1.7.8, 1.8.0
