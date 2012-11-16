@@ -13,7 +13,7 @@ saved to the folder ~/.git-switch-branch/REPO_NAME/BRANCH_NAME.
 
 Add this line to your application's Gemfile:
 
-    gem 'git-switch-branch'
+    gem 'git_switch_branch'
 
 And then execute:
 
@@ -21,7 +21,7 @@ And then execute:
 
 Or install it yourself as:
 
-    $ gem install git-switch-branch
+    $ gem install git_switch_branch
 
 ## Usage
 
