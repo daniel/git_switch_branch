@@ -18,11 +18,11 @@ module GitSwitchBranch
     return unless saved_changes?
     puts "Restoring changes...".green
     if apply_patch
-      File.delete(@patch_path)
+      File.delete(patch_path)
       @git.reset
     else
       puts "Failed to restore saved changes!"
-      puts "Please check #{@patch_path}"
+      puts "Please check #{patch_path}"
     end
   end
 
@@ -36,9 +36,9 @@ module GitSwitchBranch
 
   def self.show_changes
     if saved_changes?
-      system "cat #{@patch_path} | less"
+      system "cat #{patch_path} | less"
     else
-      puts "No saved changes found for this branch at #{@patch_path})"
+      puts "No saved changes found for this branch at #{patch_path})"
     end
   end
 
@@ -52,13 +52,13 @@ module GitSwitchBranch
   end
 
   def self.save_stash_to_patch
-    puts "Saving stash to #{@patch_path}"
-    system "git stash show -p > #{@patch_path}"
+    puts "Saving stash to #{patch_path}"
+    system "git stash show -p > #{patch_path}"
     system "git stash drop"
   end
 
   def self.saved_changes?
-    File.exists?(@patch_path)
+    File.exists?(patch_path)
   end
 
   def self.uncommitted_changes?
@@ -66,7 +66,7 @@ module GitSwitchBranch
   end
 
   def self.apply_patch
-    system "patch -p1 < #{@patch_path}"
+    system "patch -p1 < #{patch_path}"
   end
 
 end

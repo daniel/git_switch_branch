@@ -12,13 +12,12 @@ module GitSwitchBranch
 
   GSB_APP_DATA_DIR = '.git-switch-branch'
 
-  attr_accessor :git, :repo_changes_path, :patch_path
+  attr_accessor :git, :repo_changes_path
 
   def self.initialize
     @git = Git.open(Dir.pwd)
     current_dir = File.basename(Dir.getwd)
     @repo_changes_path = File.join(ENV['HOME'], GSB_APP_DATA_DIR, current_dir)
-    @patch_path = File.join(@repo_changes_path, @git.current_branch)
   end
 
   def self.find_and_checkout_branch(string)
@@ -33,6 +32,10 @@ module GitSwitchBranch
   def self.show_usage
     puts "git_switch_branch #{GitSwitchBranch::VERSION}\n\n"
     puts "Usage: gsb <branchname_or_part_of_branchname>"
+  end
+
+  def self.patch_path
+    File.join(@repo_changes_path, @git.current_branch)
   end
 
   private
