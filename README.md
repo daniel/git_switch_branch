@@ -42,8 +42,15 @@ If you know the name of the branch or part of the name you can do:
 
 If you are using Dropbox you can easily sync your uncommitted changes between all your computers.
 
-    mkdir -p ~/.git-switch-branch
-    ln -s ~/.git-switch-branch ~/Dropbox/.git-switch-branch
+First create a folder inside your DropBox folder:
+
+	~/Dropbox/.git-switch-branch
+
+Then create a link from it to ~/.git-switch-branch:
+
+    ln -s ~/Dropbox/.git-switch-branch ~/.git-switch-branch
+
+Repeat this on all your computers.
 
 ## Known Bugs
 
